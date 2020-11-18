@@ -1,0 +1,31 @@
+.logoName {
+    margin: auto;
+    color: #EDF2F4;
+}
+
+.footer {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #343a40;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin:auto;
+  width: 100%;
+}
+
+.welcomeText {
+    position: absolute;
+    top:30%;
+    left:38%;
+}
+
+.logButtonGroup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    column-gap: 70%;
+    justify-content: space-around;
+}
