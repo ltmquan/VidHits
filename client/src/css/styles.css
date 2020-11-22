@@ -1,6 +1,6 @@
 .logoName {
-    margin: auto;
-    color: #EDF2F4;
+  margin-left: 42%;
+  color: #edf2f4;
 }
 
 .footer {
@@ -10,22 +10,34 @@
   position: fixed;
   bottom: 0;
   left: 0;
-  margin:auto;
+  margin: auto;
   width: 100%;
 }
 
 .welcomeText {
-    position: absolute;
-    top:30%;
-    left:38%;
+  font-size: 4.2vw;
 }
 
 .logButtonGroup {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    column-gap: 70%;
-    justify-content: space-around;
+  display: flex;
+  column-gap: 20%;
+  justify-content: space-around;
+  margin-top: 15%;
+}
+
+.welcomeTextGroup {
+  position: absolute;
+  top: 32%;
+  left: 50%;
+}
+
+.btn-lg {
+  font-size: 2.2vw;
+}
+
+.vidHomePage {
+  width: 30%;
+  margin-top: 6%;
+  margin-left: 10%;
+  border-radius: 8%;
 }

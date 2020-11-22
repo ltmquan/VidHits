@@ -1,19 +1,15 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-import './css/styles.css'
-import NavigationBar from './NavBar/NavigationBar.js'
-import Footer from './Footer/Footer.js'
 import LogButton from './Button/LogButton';
+import vidImg from './images/video-homepage.jpg';
+import './css/styles.css';
 
 function App() {
   return (
     <div>
-      <NavigationBar/>
-      <div>
+      <img src = {vidImg} alt = 'Vid' className='vidHomePage'/>
+      <div className='welcomeTextGroup'>
         <h1 className='welcomeText'>Welcome to VidHits</h1>
         <LogButton/>
       </div>
-      <Footer/>
     </div>
   );
 }

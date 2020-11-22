@@ -1,0 +1,73 @@
+.formStyle {
+  margin-top: 7%;
+  margin-left: 10%;
+  margin-bottom: 2%;
+  max-width: 50vw;
+}
+
+p::before {
+  display: inline;
+  content: "⚠ ";
+}
+
+input {
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 0.5vw;
+  border: 1px solid black;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  font-size: 1.5vw;
+}
+
+label {
+  line-height: 2;
+  text-align: left;
+  display: block;
+  margin-bottom: 0.2vw;
+  margin-top: 20px;
+  color: black;
+  font-size: 2vw;
+  font-weight: 200;
+}
+
+button[type="submit"],
+input[type="submit"] {
+  background: #e23e4e;
+  color: white;
+  text-transform: uppercase;
+  border: none;
+  margin-top: 40px;
+  padding: 20px;
+  font-size: 1.5vw;
+  font-weight: 100;
+  letter-spacing: 10px;
+}
+
+input:disabled {
+  opacity: 0.4;
+}
+
+input[type="button"]:hover {
+  transition: 0.3s all;
+}
+
+button {
+  display: block;
+  appearance: none;
+  margin-top: 40px;
+  border: 1px solid #333;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+
+.passwordImg {
+  width: 35%;
+}
+
+.flexItem {
+  display: flex;
+  column-gap: 15%;
+}
