@@ -6,29 +6,16 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
-import { Navbar } from "react-bootstrap";
-import logo from './images/logo.png'
 import Signup from "./Signup";
 import Footer from './Footer/Footer'
+import Login from "./Login";
+import NavigationBar from './NavBar/NavigationBar'
 
 ReactDOM.render(
   <div>
     <Router>
       <div>
-        {/* Navbar */}
-        <Navbar bg="dark" variant="dark">
-          <Navbar.Brand href="/">
-            <img
-              alt=""
-              src={logo}
-              width="30"
-              height="30"
-              className="d-inline-block align-top"
-            />{" "}
-          </Navbar.Brand>
-          <h2 className="logoName">VidHits</h2>
-        </Navbar>
-
+        <NavigationBar/>
         <Switch>
           <Route exact path="/">
             <App />
@@ -36,9 +23,9 @@ ReactDOM.render(
           <Route path="/signup">
             <Signup />
           </Route>
-          {/* <Route path="/dashboard">
-            <Dashboard />
-          </Route>  */}
+          <Route path="/login">
+            <Login />
+          </Route>
         </Switch>
         <Footer/>
       </div>

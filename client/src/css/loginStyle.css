@@ -1,17 +1,10 @@
-.formStyle {
-  margin-left: 20%;
-  margin-bottom: 2%;
-  max-width: 50vw;
+.loginStyle {
+    margin-left: 20%;
 }
 
-p::before {
-  display: inline;
-  content: "⚠ ";
-}
-
-.signUpInput {
+.loginInput {
   box-sizing: border-box;
-  width: 150%;
+  width: 70%;
   border-radius: 0.5vw;
   border: 1px solid black;
   padding: 10px 15px;
@@ -29,12 +22,11 @@ label {
   font-weight: 200;
 }
 
-.createAccount {
+.login {
+  margin-top: 2%;
   line-height: 2;
-  margin-top: 7%;
-  margin-bottom: 2%;
-  margin-left: 20%;
-  font-weight: 300;
+  margin-left: 45%;
+  font-weight: 500;
 }
 
 button[type="submit"],
@@ -71,9 +63,4 @@ button {
 
 .passwordImg {
   width: 35%;
-}
-
-.flexItem {
-  display: flex;
-  column-gap: 20%;
 }
