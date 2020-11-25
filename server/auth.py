@@ -1,23 +1,26 @@
 from flask import Flask, render_template, redirect, url_for, request, flash
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import login_user, logout_user, login_required, current_user, LoginManager 
-from .models import User
-from . import db
+from flask_login import login_user, logout_user, login_required, current_user, LoginManager, UserMixin
 from flask_sqlalchemy import SQLAlchemy 
 from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
-db = SQLAlchemy()
+
 app.config['SECRET_KEY'] = 'thisismysecretkeydonotstealit'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
-db.init_app(app)
+# db.init_app(app)
+db = SQLAlchemy(app)
 
 login_manager = LoginManager()
 login_manager.login_view = 'login'
 login_manager.init_app(app)
 
-from .models import User
+
+class User(UserMixin, db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(100), unique=True)
+    password = db.Column(db.String(100))
 
 @login_manager.user_loader
 def load_user(user_id):
