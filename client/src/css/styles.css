@@ -41,3 +41,17 @@
   margin-left: 10%;
   border-radius: 8%;
 }
+
+.loginNavBar {
+  margin-left: 40%;
+}
+
+.signupNavBar {
+  margin-left: 40%;
+}
+
+.nameNavBar {
+  margin-left: 20%;
+  color:white;
+  font-weight: 200;
+}

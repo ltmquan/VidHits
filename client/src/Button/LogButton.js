@@ -7,10 +7,13 @@ export default function LogButton() {
     const handleSignup = () => {
         history.push('/signup')
     }
+    const handleLogin = () => {
+        history.push('/login')
+    }
 
     return (
         <div className='logButtonGroup'>
-            <Button variant="outline-danger" size="lg">Login</Button>{' '}
+            <Button variant="outline-danger" size="lg" onClick={handleLogin}>Login</Button>{' '}
             <Button variant="outline-danger" size="lg" onClick={handleSignup}>Signup</Button>{' '}
         </div>
     )

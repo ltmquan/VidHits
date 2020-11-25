@@ -9,13 +9,13 @@ import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Signup from "./Signup";
 import Footer from './Footer/Footer'
 import Login from "./Login";
-import NavigationBar from './NavBar/NavigationBar'
+import Homepage from "./Homepage";
 
 ReactDOM.render(
   <div>
     <Router>
       <div>
-        <NavigationBar/>
+        {/* <NavigationBar/> */}
         <Switch>
           <Route exact path="/">
             <App />
@@ -25,6 +25,9 @@ ReactDOM.render(
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/homepage">
+            <Homepage />
           </Route>
         </Switch>
         <Footer/>
