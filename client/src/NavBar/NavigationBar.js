@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../images/logo.png";
-import { Navbar } from "react-bootstrap";
+import { Navbar, Button } from "react-bootstrap";
 import '../css/styles.css'
 
 function NavigationBar(props) {
@@ -17,9 +17,10 @@ function NavigationBar(props) {
           />{" "}
         </Navbar.Brand>
         <h2 className='logoName'>VidHits</h2>
-        {props.loginNavBar && <a href='/login' className='loginNavBar'>Login</a>}
-        {props.signupNavBar && <a href='/signup' className='signupNavBar'>Sign Up</a>}
+        {props.loginNavBar && <Button href='/login' variant="outline-light" className='loginNavBar'>Login</Button>}
+        {props.signupNavBar && <Button href='/signup' variant="outline-light" className='signupNavBar'>Sign Up</Button>}
         {props.nameNavBar && <h3 className='nameNavBar'>Welcome {props.nameNavBar}!</h3>}
+        {props.logOutButton && <Button href = '/login' variant="outline-light" className='logOutButton'>Log Out</Button>}
       </Navbar>
     </div>
   );

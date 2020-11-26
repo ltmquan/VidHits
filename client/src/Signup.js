@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import "./css/formStyles.css";
-import passwordImg from "./images/password.jpg";
+import passwordImg from "./images/signup.jpg";
 import { useHistory } from "react-router-dom";
 import client from "./axios";
 import isEmail from "validator/lib/isEmail";

@@ -44,6 +44,7 @@
 
 .loginNavBar {
   margin-left: 40%;
+  font-size: 1.3vw;
 }
 
 .signupNavBar {
@@ -51,7 +52,19 @@
 }
 
 .nameNavBar {
-  margin-left: 20%;
+  margin-left: 27%;
+  margin-right: 3%;
   color:white;
   font-weight: 200;
+  font-size: 1.2vw;
+}
+
+.logOutButton {
+  margin-right: 2%;
+}
+
+.searchBar {
+  margin-top: 15%;
+  margin-left:8%;
+  font-size: 3vw;
 }

@@ -57,9 +57,6 @@ function Login() {
         return <p style={{color: "red"}}>Enter valid email</p>
       }
     }
-    else {
-      setinvalidCredentials(false)
-    }
   }
 
   return (
@@ -73,6 +70,7 @@ function Login() {
           type="text"
           name="Email"
           ref={register({ required: true, pattern: /^\S+@\S+$/i })}
+          style={{ borderColor: errors.Email && "red" }}
         />
         <label>Password</label>
         <input
@@ -81,8 +79,9 @@ function Login() {
           type="password"
           ref={register({
           })}
+          style={{ borderColor: errors.password && "red" }}
         />
-        {validationForm}
+        {validationForm()}
         {invalidCredentials && <p style={{color: "red"}}>Invalid user credentials</p>}
         <input className='loginInput' type="submit" />
       </form>

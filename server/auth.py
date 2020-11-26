@@ -9,12 +9,8 @@ CORS(app)
 
 app.config['SECRET_KEY'] = 'thisismysecretkeydonotstealit'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
-# db.init_app(app)
 db = SQLAlchemy(app)
-
-# login_manager = LoginManager()
-# login_manager.login_view = 'login'
-# login_manager.init_app(app)
+db.init_app(app)
 
 
 class User(UserMixin, db.Model):
@@ -87,10 +83,10 @@ def signup_post():
     return message
 
 @app.route('/logout')
-@login_required
+# @login_required
 def logout():
     logout_user()
-    return redirect(url_for('main.index'))
+    return 'User is logged out successfully'
 
 @app.route('/profile')
 # @login_required
