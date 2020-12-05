@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block page_content %}
+
+
+<!-- {%- block metas %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/recipe.css">
+    {%- endblock metas %} -->
+
+
+<div class="container">
+  <form method="POST">{{ wtf.quick_form(form)}}</form>
+  <h4> Id&nbsp;&nbsp;&nbsp;&nbsp;User</h4>
+    
+      {% for user in users%}
+      <p>{{user.id}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{user.name}} <p>
+      {% endfor %}
+    
+
+    <h4>Id&nbsp;&nbsp;&nbsp;&nbsp;Vid Link</h4>
+      
+      {% for vid in history%}
+      <p>{{vid.user}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{vid.vid}} </p>
+      {% endfor %}
+
+    
+
+
+
+</div>
+</div>
+
+
+{% endblock %}
