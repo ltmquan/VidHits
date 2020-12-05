@@ -6,7 +6,6 @@ from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
 
 app = Flask(__name__)
 application  = app
@@ -55,7 +54,8 @@ def index():
 
         foundUser= Users.query.filter_by(name=name).first()
         if form.add.data:
-            if foundUser is None: #if the user name is already in the db
+            if foundUser is None: #if the user name is not already in the db
+                print('not in db')
                 newUser = Users(name = name)
                 db.session.add(newUser)
                 db.session.commit()
@@ -63,9 +63,12 @@ def index():
             else: 
                 id=foundUser.id
 
-            newHistory = History(user=id, vid=vid)
-            db.session.add(newHistory)
-            db.session.commit()
+            if vid !='': 
+                newHistory = History(user=id, vid=vid)
+                db.session.add(newHistory)
+                db.session.commit()
+                print('NOT NONEEEE')
+                print(vid)
        
     users = Users.query.all()
     history= History.query.all()
