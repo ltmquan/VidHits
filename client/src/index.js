@@ -10,6 +10,7 @@ import Signup from "./Signup";
 import Footer from './Footer/Footer'
 import Login from "./Login";
 import Homepage from "./Homepage";
+import History from './History';
 
 ReactDOM.render(
   <div>
@@ -28,6 +29,9 @@ ReactDOM.render(
           </Route>
           <Route path="/homepage">
             <Homepage />
+          </Route>
+          <Route path="/viewhistory">
+            <History />
           </Route>
         </Switch>
         <Footer/>

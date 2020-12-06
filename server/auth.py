@@ -1,8 +1,11 @@
-from flask import Flask, render_template, redirect, url_for, request, flash
+from enum import unique
+from flask import Flask, render_template, redirect, url_for, request, flash, json, jsonify
+from sqlalchemy.orm import backref
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, logout_user, login_required, current_user, LoginManager, UserMixin
 from flask_sqlalchemy import SQLAlchemy 
 from flask_cors import CORS
+from collections import defaultdict
 
 app = Flask(__name__)
 CORS(app)
@@ -18,6 +21,18 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(100), unique=True)
     email = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(100))
+    videos = db.relationship('Video', backref='owner')
+
+class Video(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    video_url = db.Column(db.String(100), nullable=False)
+    snippet_title = db.Column(db.String(300), nullable=False)
+    snippet_channelTitle = db.Column(db.String(300), nullable=False)
+    snippet_thumbnail = db.Column(db.String(300), nullable=False)
+    snippet_description = db.Column(db.String(500), nullable=False)
+    owner_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    def toJSON(self):
+        return json.dumps(self,default= lambda o : o.__dict__,sort_keys=True,indent = 4)
 
 login_manager = LoginManager()
 login_manager.login_view = 'login'
@@ -94,3 +109,41 @@ def profile():
     # return render_template('profile.html', name=current_user.username)
     global userName
     return userName
+
+@app.route('/addVideo' ,methods=['POST'])
+def addVideo():
+    request_data = request.get_json()
+    video_url = request_data['video_url']
+    user_name = request_data['user_name']
+    snippet_title = request_data['snippet_title']
+    snippet_channelTitle = request_data['snippet_channelTitle']
+    snippet_thumbnail = request_data['snippet_thumbnail']
+    snippet_description = request_data['snippet_description']
+
+    video = Video.query.filter_by(video_url=video_url).first()
+    current_user = User.query.filter_by(username=user_name).first()
+    if video and video in current_user.videos:
+        message = 'Video already added to history database'
+        return message
+
+    new_video = Video(video_url=video_url, snippet_title=snippet_title, snippet_channelTitle=snippet_channelTitle, snippet_thumbnail= snippet_thumbnail, snippet_description= snippet_description, owner= current_user)
+    db.session.add(new_video)
+    db.session.commit()
+    return 'Hello'
+
+@app.route('/viewhistory')
+def history():
+    global userName
+    current_user = User.query.filter_by(username=userName).first()
+    video_history = defaultdict(str)
+    index = 1
+    for video in current_user.videos:
+        videoDict = {}
+        videoDict['video_url'] = video.video_url
+        videoDict['snippet_title'] = video.snippet_title
+        videoDict['snippet_channelTitle'] = video.snippet_channelTitle
+        videoDict['snippet_thumbnail'] = video.snippet_thumbnail
+        videoDict['snippet_description'] = video.snippet_description
+        video_history['video' + str(index)] = videoDict
+        index += 1
+    return jsonify(video_history)

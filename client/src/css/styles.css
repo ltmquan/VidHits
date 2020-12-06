@@ -4,7 +4,7 @@
 }
 
 .footer {
-  margin-top: 1rem;
+  margin-top: 10%;
   padding: 1rem;
   background-color: #343a40;
   position: fixed;
@@ -52,19 +52,55 @@
 }
 
 .nameNavBar {
-  margin-left: 27%;
-  margin-right: 3%;
+  margin-left: 15%;
+  margin-right: 5%;
   color:white;
   font-weight: 200;
   font-size: 1.2vw;
 }
 
 .logOutButton {
-  margin-right: 2%;
+  margin-right: 5%;
 }
 
-.searchBar {
-  margin-top: 15%;
-  margin-left:8%;
-  font-size: 3vw;
+/* .historyButton {
+  position: absolute;
+  right: 2%;
+} */
+
+
+.ForwardRef-root-1 {
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 1%;
 }
+
+.MuiPaper-elevation1 {
+  border: 1px solid black;
+}
+
+.framePaper {
+  margin-left: 5%;
+  margin-top: 5%;
+  width:50%;
+}
+
+body {
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  margin-bottom: 10%;
+}
+
+.selectedVideo {
+  width: 50vw;
+  height: 70vh;
+}
+
+.videoDetail {
+  width: 50vw;
+}
+
+.videoListWidth {
+  width: 10px;
+}
+
+
