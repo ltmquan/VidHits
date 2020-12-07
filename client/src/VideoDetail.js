@@ -4,7 +4,7 @@ import './css/styles.css'
 import client from './axios'
 
 function VideoDetail(props) {
-    if (!props.video) return <div>Loading....</div>
+    if (!props.video) return <div>Please type in your search above ....</div>
     const videoSrc = `https://www.youtube.com/embed/${props.video.id.videoId}`
     const handleVideoClicked = () => {
         client.post('/addVideo', {
@@ -23,9 +23,10 @@ function VideoDetail(props) {
                 <iframe frameBorder='0' height='100%' width='100%' title='Video Player' src={videoSrc}/>
             </Paper>
             <Paper elevation={6} className='videoDetail'>
-                <Typography variant="h4">{props.video.snippet.title} - {props.video.snippet.channelTitle}</Typography>
-                <Typography variant="subtitle1">{props.video.snippet.channelTitle}</Typography>
-                <Typography variant="subtitle2">{props.video.snippet.description}</Typography>
+                <Typography variant="h3">{props.video.snippet.title} - {props.video.snippet.channelTitle}</Typography>
+                <br/>
+                <br/>
+                <Typography variant="subtitle2" style={{'font-size':'1.5vw'}}>{props.video.snippet.description}</Typography>
             </Paper>
         </div>
     )
