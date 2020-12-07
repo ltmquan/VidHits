@@ -2,6 +2,7 @@ import React from 'react'
 import {Paper, Typography} from '@material-ui/core'
 import './css/styles.css'
 import client from './axios'
+import { Button } from 'react-bootstrap'
 
 function VideoDetail(props) {
     if (!props.video) return <div>Please type in your search above ....</div>
@@ -17,18 +18,23 @@ function VideoDetail(props) {
         })
         .then(res => console.log(res.data))
     }
+
     return (
-        <div className='framePaper' id='selectedVideo' onClick={handleVideoClicked}>
-            <Paper elevation={6} className='selectedVideo'>
-                <iframe frameBorder='0' height='100%' width='100%' title='Video Player' src={videoSrc}/>
-            </Paper>
-            <Paper elevation={6} className='videoDetail'>
-                <Typography variant="h3">{props.video.snippet.title} - {props.video.snippet.channelTitle}</Typography>
-                <br/>
-                <br/>
-                <Typography variant="subtitle2" style={{'font-size':'1.5vw'}}>{props.video.snippet.description}</Typography>
-            </Paper>
+        <div>
+            <Button variant="outline-danger" className='addToHistory' onClick={handleVideoClicked}>Add Video to Your Watch History</Button>
+            <div className='framePaper' id='selectedVideo' >
+                <Paper elevation={6} className='selectedVideo' >
+                    <iframe id='iframe' frameBorder='0' height='100%' width='100%' title='Video Player' src={videoSrc}/>
+                </Paper>
+                <Paper elevation={6} className='videoDetail'>
+                    <Typography variant="h3">{props.video.snippet.title} - {props.video.snippet.channelTitle}</Typography>
+                    <br/>
+                    <br/>
+                    <Typography variant="subtitle2" style={{'fontSize':'1.5vw'}}>{props.video.snippet.description}</Typography>
+                </Paper>
+            </div>
         </div>
+       
     )
 }
 

@@ -8,7 +8,7 @@ export default function HistoryList({videos, onVideoSelect}) {
     ));
     return (
         <div>
-            <Grid container spacing={10} className='videoListWidth'>
+            <Grid container spacing={10} style={{'margin-top':'10%'}}>
                 {listOfVideos}
             </Grid>
         </div>
