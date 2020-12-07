@@ -21,7 +21,8 @@ function NavigationBar(props) {
         {props.signupNavBar && <Button href='/signup' variant="outline-light" className='signupNavBar'>Sign Up</Button>}
         {props.nameNavBar && <h3 className='nameNavBar'>Welcome {props.nameNavBar}!</h3>}
         {props.logOutButton && <Button href = '/login' variant="outline-light" className='logOutButton'>Log Out</Button>}
-        <Button href='/viewhistory' variant="outline-light" className='historyButton'>View History</Button>
+        {props.viewHistory && <Button href='/viewhistory' variant="outline-light" className='historyButton'>View History</Button>}
+        {props.returnHomePage && <Button href='/homepage' variant="outline-light" className='homepageButton'>Homepage</Button>}
       </Navbar>
     </div>
   );

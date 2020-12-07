@@ -7,7 +7,7 @@ import NavigationBar from './NavBar/NavigationBar'
 
 function Login() {
   const { register, handleSubmit, errors,reset } = useForm();
-  const [invalidCredentials, setinvalidCredentials] = useState(false)
+  const [invalidCredentials, setinvalidCredentials] = useState(false);
   const [signupNavBar, setsignupNavBar] = useState(true);
   const history = useHistory();
   const onSubmit = (data) => {
@@ -61,7 +61,7 @@ function Login() {
 
   return (
     <div>
-      <NavigationBar signupNavBar={signupNavBar}/>
+      <NavigationBar signupNavBar={signupNavBar} />
       <h1 className="login">Log in</h1>
       <form onSubmit={handleSubmit(onSubmit)} className="loginStyle">
         <label>Email</label>

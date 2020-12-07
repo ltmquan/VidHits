@@ -16,6 +16,7 @@ export default function Homepage() {
   const [logOutButton, setlogOutButton] = useState(false);
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setselectedVideo] = useState(null);
+  const [viewHistory, setviewHistory] = useState(true);
   
 
   useEffect(() => {
@@ -48,7 +49,7 @@ export default function Homepage() {
 
   return (
     <div>
-      <NavigationBar nameNavBar={nameNavBar} logOutButton={logOutButton} />
+      <NavigationBar nameNavBar={nameNavBar} logOutButton={logOutButton} viewHistory = {viewHistory} />
       <Grid style={{ justifyContent: "center" }} container spacing={10}>
         <Grid item xs={11}>
           <Grid container spacing={10}>

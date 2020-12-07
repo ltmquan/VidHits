@@ -11,6 +11,7 @@ import SearchBar from "./SearchBar";
 export default function History() {
     const [videoList, setVideoList] = useState([]);
     const [selectedVideo, setselectedVideo] = useState(null);
+    const [returnHomePage, setreturnHomePage] = useState(true);
     useEffect(() => {
         let videos = [];
         client
@@ -36,7 +37,7 @@ export default function History() {
 
     return (
         <div>
-            <NavigationBar />
+            <NavigationBar returnHomePage= {returnHomePage} />
             <Grid style={{ justifyContent: "center" }} container spacing={10}>
                 <Grid item xs={11}>
                     <Grid container spacing={10}>
