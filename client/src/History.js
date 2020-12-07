@@ -4,9 +4,7 @@ import "./css/styles.css";
 import client from "./axios";
 import HistoryList from "./HistoryList";
 import { Grid } from "@material-ui/core";
-import VideoDetail from "./VideoDetail";
 import HistoryVideoDetail from "./HistoryVideoDetail";
-import SearchBar from "./SearchBar";
 
 export default function History() {
     const [videoList, setVideoList] = useState([]);
