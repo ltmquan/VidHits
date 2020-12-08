@@ -17,6 +17,7 @@ export default function Homepage() {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setselectedVideo] = useState(null);
   const [viewHistory, setviewHistory] = useState(true);
+  const [show, setShow] = useState(false);
   
 
   useEffect(() => {
@@ -40,11 +41,21 @@ export default function Homepage() {
 
     setVideos(videos);
     setselectedVideo(videos[0]);
+    setShow(false)
   }
 
   const onVideoSelect = (video) => {
     setselectedVideo(video);
   };
+
+  const setShowChange = boolean => {
+    if (boolean === false){
+      setShow(false)
+    }
+    else {
+      setShow(true)
+    }
+  }
 
   return (
     <div>
@@ -56,7 +67,7 @@ export default function Homepage() {
               <SearchBar onSubmit={handleSubmit} />
             </Grid>
             <Grid item xs={8} className='selectedVideoGrid'>
-              <VideoDetail video={selectedVideo} userName={nameNavBar}/>
+              <VideoDetail video={selectedVideo} userName={nameNavBar} show={show} setShow={setShowChange}/>
             </Grid>
             <Grid item xs={4}>
               <VideoList videos={videos} onVideoSelect={onVideoSelect} />

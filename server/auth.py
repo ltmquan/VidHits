@@ -118,8 +118,8 @@ def addVideo():
     snippet_thumbnail = request_data['snippet_thumbnail']
     snippet_description = request_data['snippet_description']
 
-    video = Video.query.filter_by(video_url=video_url).first()
     current_user = User.query.filter_by(username=user_name).first()
+    video = Video.query.filter_by(video_url=video_url, owner_id=current_user.id).first()
     if video and video in current_user.videos:
         message = 'Video already added to history database'
         return message
@@ -127,7 +127,7 @@ def addVideo():
     new_video = Video(video_url=video_url, snippet_title=snippet_title, snippet_channelTitle=snippet_channelTitle, snippet_thumbnail= snippet_thumbnail, snippet_description= snippet_description, owner= current_user)
     db.session.add(new_video)
     db.session.commit()
-    return 'Hello'
+    return 'Video added to watch history successfully'
 
 @app.route('/viewhistory')
 def history():

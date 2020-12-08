@@ -116,4 +116,19 @@ body {
   margin-left: 5%;
 }
 
+.alertMessage {
+  margin-left:5%;
+  width: 50vw;
+  text-align: center;
+}
+
+.alert-dismissible .close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  color: inherit;
+  margin-top: 0.4%;
+}
+
 
