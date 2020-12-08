@@ -96,15 +96,12 @@ def signup_post():
     return message
 
 @app.route('/logout')
-# @login_required
 def logout():
     logout_user()
     return 'User is logged out successfully'
 
 @app.route('/profile')
-# @login_required
 def profile():
-    # return render_template('profile.html', name=current_user.username)
     global userName
     return userName
 
@@ -156,3 +153,6 @@ def delete(id):
         return 'Delete successfully'
     except:
         return 'There was a problem deleting the video'
+
+if __name__ == '__main__':
+    app.run(debug=True)
