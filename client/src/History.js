@@ -26,12 +26,21 @@ export default function History() {
             });
     }, []);
 
-    console.log(videoList);
-    console.log(selectedVideo);
-
     const onVideoSelect = (video) => {
         setselectedVideo(video);
     };
+
+    const deleteFromHistory = () => {
+        client.delete('/deleteVideo/' + selectedVideo.id)
+            .then(res => {
+                console.log(res.data)
+                let newvideoList = videoList
+                const index = newvideoList.findIndex(obj => obj.id === selectedVideo.id)
+                newvideoList.splice(index,1)
+                setselectedVideo(newvideoList[0])
+                setVideoList(newvideoList)
+        })
+    }
 
     return (
         <div>
@@ -40,7 +49,7 @@ export default function History() {
                 <Grid item xs={11}>
                     <Grid container spacing={10}>
                         <Grid item xs={8} className="selectedVideoGrid">
-                            <HistoryVideoDetail video={selectedVideo} />
+                            <HistoryVideoDetail video={selectedVideo} deleteFromHistory={deleteFromHistory} />
                         </Grid>
                         <Grid item xs={4}>
                             <HistoryList
