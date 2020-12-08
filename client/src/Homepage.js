@@ -20,7 +20,6 @@ export default function Homepage() {
   
 
   useEffect(() => {
-    // handleSubmit('pdf generation with react and node')
     client.get("/profile").then((res) => {
       setnameNavBar(res.data);
     });

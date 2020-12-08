@@ -31,8 +31,6 @@ class Video(db.Model):
     snippet_thumbnail = db.Column(db.String(300), nullable=False)
     snippet_description = db.Column(db.String(500), nullable=False)
     owner_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    def toJSON(self):
-        return json.dumps(self,default= lambda o : o.__dict__,sort_keys=True,indent = 4)
 
 login_manager = LoginManager()
 login_manager.login_view = 'login'
@@ -139,6 +137,7 @@ def history():
     index = 1
     for video in current_user.videos:
         videoDict = {}
+        videoDict['id'] = video.id
         videoDict['video_url'] = video.video_url
         videoDict['snippet_title'] = video.snippet_title
         videoDict['snippet_channelTitle'] = video.snippet_channelTitle
@@ -147,3 +146,13 @@ def history():
         video_history['video' + str(index)] = videoDict
         index += 1
     return jsonify(video_history)
+
+@app.route('/deleteVideo/<int:id>', methods=["DELETE"])
+def delete(id):
+    video_to_delete = Video.query.filter_by(id=id).first()
+    try:
+        db.session.delete(video_to_delete)
+        db.session.commit()
+        return 'Delete successfully'
+    except:
+        return 'There was a problem deleting the video'
