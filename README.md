@@ -39,6 +39,9 @@ Set up the server
 
 ```
 cd server
+Create venv : py -3 -m venv venv
+Activate venv: venv\Scripts\activate
+Install dependencies: pip -r install requirements.txt
 set FLASK_APP=auth.py
 set FLASK_ENV=development
 flask run
