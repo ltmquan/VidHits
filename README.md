@@ -1,6 +1,5 @@
 <p align="center">
-  <a href="" rel="noopener">
- <img width=200px height=200px src="https://ibb.co/jbytcZf" alt="Project logo"></a>
+  <a href="https://imgbb.com/"><img src="https://i.ibb.co/0mC5gV2/logo.png" alt="logo" border="0" /></a>
 </p>
 
 <h3 align="center">VidHits</h3>
