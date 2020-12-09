@@ -55,3 +55,4 @@ npm start
 ## ✍️ Author <a name = "authors"></a>
 - [@baotran01](https://github.com/baotran01)
 - [@ltmquan](https://github.com/ltmquan)
+- [@DuongPhan45](https://github.com/DuongPhan45)
