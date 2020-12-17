@@ -153,3 +153,6 @@ def delete(id):
         return 'Delete successfully'
     except:
         return 'There was a problem deleting the video'
+
+if __name__ == '__main__':
+    app.run(debug=True)

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import NavigationBar from "./NavBar/NavigationBar";
 import client from "./axios";
 import "./css/styles.css";
-// import SearchBar from "material-ui-search-bar";
 import youtubeClient from "./apis/youtube";
 import SearchBar from "./SearchBar";
 import VideoDetail from "./VideoDetail";
