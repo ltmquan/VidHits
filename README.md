@@ -26,7 +26,7 @@
 - [Authors](#authors)
 
 ## 🧐 About <a name = "about"></a>
-A web application to help users find top 5 most relevant videos on Youtube and view them. The app also contains user authentication as well as watch history databases.
+A web application to help users search for the top five most relevant Youtube videos. Instead of scrolling through hundreds of videos, this app helps its users pick out the ones most likely to match with their search. The app also contains user authentication as well as watch history databases.
 
 
 ## ⛏️ Built Using <a name = "built_using"></a>
